@@ -1,0 +1,38 @@
+  
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"/>
+
+
+</head>
+
+<body>
+<div class="body-section">
+    <div class="container margin">
+        <ul class="list-group">
+            <li >Titulo: <b><%= movie.title %></b></li>
+            <li >Fecha de estreno: <b><%= movie.release_date %></b></li>
+            <li >Premios: <b><%= movie.awards %></b></li>
+            <li >Rating: <b><%= movie.rating %></b></li>
+            <li >Duración: <b><% if (movie.length > 0) { %>
+                    <%= movie.length %>min
+                    <% } else { %>
+                    -
+                    <% } %></b></li>
+        </ul>
+        <div class=" mt-4">
+            <a href="/movies/edit/<%= movie.id %>"><button ><i class="fas fa-edit"></i>
+                    Editar</button></a>
+            <form  action="/movies/delete/<%= movie.id %>?_method=DELETE" method="POST"
+                class="ml-3"><button type="submit"><i class="fas fa-trash"></i>
+                    Eliminar</button></form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
